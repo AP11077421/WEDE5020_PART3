@@ -1,0 +1,651 @@
+/* FORMEZ Stylesheet */
+
+/* ---------------- Font ----------------
+   Importing one font from Google Fonts and using it everywhere. */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* ---------------- Colours ----------------
+   All colours are kept in one place (as variables) so they are
+   easy to find and change later without hunting through the file. */
+
+:root {
+    --ink: #1a1a1a;        /* near-black, used for text and dark backgrounds */
+    --paper: #f8f3e6;      /* warm off-white, main page background */
+    --light: #efe6cf;      /* slightly darker cream, used for cards */
+    --accent: #e2531f;     /* orange accent colour, buttons and prices */
+    --accent-dark: #b93f16;/* darker orange, used on hover */
+    --line: #ddd3b8;       /* light border/divider colour */
+    --font: 'Poppins', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--paper);
+    color: var(--ink);
+    font-size: 1rem;      /* 16px base text size on phones */
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Headings share the same bold style; sizes are set individually
+   below and get bigger again in the tablet/desktop sections. */
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ---------------- Responsive images ---------------- */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------------- Header & Navigation ----------------
+   Mobile-first: on small screens the logo sits on top and the
+   nav links stack in a full-width column underneath it. The
+   TABLET section further down turns this into one horizontal row. */
+
+header {
+    background-color: var(--ink);
+    padding: 1rem;
+    position: sticky;  /* keeps the header visible when scrolling */
+    top: 0;
+}
+
+header img {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 0.5rem auto;
+}
+
+header .logo h1 {
+    color: var(--paper);
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Nav links stacked in a column, one per line, on phones */
+header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+header nav a {
+    color: var(--paper);
+    font-weight: 600;
+}
+
+header nav a:hover,
+header nav a:focus {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+/* ---------------- Buttons ----------------
+   One shared style for every call-to-action link/button on the
+   site (class="cta-button"), so they all look consistent. */
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    margin: 0.4rem 0.3rem;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background-color: var(--accent-dark);
+}
+
+/* ---------------- General section spacing ---------------- */
+
+main > section,
+main > p,
+main > h2 {
+    padding: 2rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+}
+
+main > section:last-child {
+    border-bottom: none;
+}
+
+/* ---------------- Hero section (home page) ----------------
+   On mobile the image sits on top and the text sits underneath
+   it in the normal page flow — no tricky positioning needed. */
+
+#hero {
+    text-align: center;
+    padding: 0 0 2rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+#hero img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;   /* fills the box without distorting the photo */
+    margin-bottom: 1.5rem;
+}
+
+#hero h2,
+#hero p,
+#hero a {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+#hero h2 {
+    font-size: 1.7rem;
+}
+
+/* ---------------- Call-to-action sections ----------------
+   Any section with id="call-to-action" or id="cta" gets a dark
+   background so it stands out from the rest of the page. */
+
+#call-to-action,
+#cta {
+    background-color: var(--ink);
+    color: var(--paper);
+    text-align: center;
+}
+
+#call-to-action h2,
+#cta h2 {
+    color: var(--paper);
+}
+
+/* ---------------- Highlights list (home page) ---------------- */
+
+#highlights li {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--line);
+}
+
+/* ---------------- Product grid (services page) ----------------
+   Flexbox with wrapping: cards sit one-per-row on a phone and
+   line up side by side once there is enough space (see the
+   TABLET and DESKTOP sections below). */
+
+#product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.product-card {
+    background-color: var(--light);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;   /* one card per row on phones */
+}
+
+.product-card a {
+    display: block;
+    color: var(--ink);
+    padding-bottom: 0.75rem;
+}
+
+.product-card .product-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3,
+.product-card p {
+    margin: 0.6rem 0.8rem 0;
+}
+
+.product-card p {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* ---------------- Product detail page ---------------- */
+
+#product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#product-gallery img {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* The first gallery photo is the big "main" image; the rest are
+   small thumbnails next to it. */
+#product-gallery img:not(:first-child) {
+    width: 90px;
+    height: 90px;
+}
+
+#product-price {
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+#product-info form {
+    background-color: var(--light);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+/* ---------------- Forms ----------------
+   Shared styling for every form on the site (contact, enquiries,
+   checkout, and the "add to cart" form on product pages). */
+
+form {
+    max-width: 30rem;   /* keeps standalone forms a comfortable width to read */
+}
+
+#product-info form {
+    max-width: none;    /* this form already sits inside a narrow column */
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 0.6rem;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    background-color: var(--paper);
+    color: var(--ink);
+}
+
+textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--accent);
+}
+
+form button[type="submit"] {
+    font-family: var(--font);
+    font-weight: 700;
+    background-color: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 6px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover,
+form button[type="submit"]:focus {
+    background-color: var(--accent);
+}
+
+/* ---------------- Tables (cart & checkout) ----------------
+   "overflow-x: auto" lets a wide table scroll sideways on a small
+   screen instead of squashing every column or breaking the layout. */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--light);
+    display: block;
+    overflow-x: auto;
+}
+
+th, td {
+    padding: 0.7rem;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--line);
+}
+
+thead {
+    background-color: var(--ink);
+    color: var(--paper);
+}
+
+#cart-section p,
+#checkout-summary p {
+    text-align: right;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* ---------------- Contact locations ---------------- */
+
+.location {
+    background-color: var(--light);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0 6px 6px 0;
+}
+
+/* ---------------- Footer ---------------- */
+
+footer {
+    background-color: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 2rem 1.25rem;
+}
+
+footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+}
+
+footer nav a {
+    color: var(--paper);
+}
+
+footer nav a:hover,
+footer nav a:focus {
+    color: var(--accent);
+}
+
+/* TABLET STYLES */
+
+@media (min-width: 600px) {
+
+    /* Text can afford to be a little bigger now there's more room */
+    body {
+        font-size: 1.05rem;
+    }
+
+    h2 {
+        font-size: 1.85rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Header & nav become one horizontal row instead of stacked */
+    header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    header img {
+        margin: 0;
+    }
+
+    header .logo h1 {
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    header nav {
+        margin-left: auto;
+    }
+
+    header nav ul {
+        flex-direction: row;
+        gap: 1.25rem;
+    }
+
+    /* Hero image and heading get bigger now there is more room */
+    #hero img {
+        height: 400px;
+    }
+
+    #hero h2 {
+        font-size: 2.3rem;
+    }
+
+    /* Product cards: two per row instead of one */
+    .product-card {
+        width: calc(50% - 0.75rem);
+    }
+
+    .product-card .product-thumb {
+        height: 230px;
+    }
+
+    /* Product gallery thumbnails a little bigger */
+    #product-gallery img:not(:first-child) {
+        width: 110px;
+        height: 110px;
+    }
+
+    #product-price {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* DESKTOP STYLES
+   Everything in here only applies once the screen is at least
+   1024px wide (laptops and bigger screens). */
+
+@media (min-width: 1024px) {
+
+    /* Text gets one more size increase for comfortable reading on
+       a big screen */
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    #hero h2 {
+        font-size: 2.8rem;
+    }
+
+    /* Give the page a comfortable maximum width so content doesn't
+       stretch edge-to-edge on very wide screens. */
+    header > *,
+    main > section,
+    main > p,
+    main > h2,
+    footer > * {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /* Product cards: three per row */
+    .product-card {
+        width: calc(33.333% - 1rem);
+    }
+
+    /* Product detail page: gallery and info side by side instead
+       of stacked */
+    #product-detail {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #product-gallery {
+        flex: 1;
+    }
+
+    #product-info {
+        flex: 1;
+    }
+
+    /* Hero text moves to the left and the whole section becomes
+       taller so the photo and text feel more spacious */
+    #hero {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+
+/* ---------------- Part 3: JavaScript features ---------------- */
+
+/* Form validation messages */
+.error {
+    display: block;
+    color: #b00020;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border-color: #b00020;
+    border-width: 2px;
+}
+
+/* Status messages (added to cart, order placed, enquiry sent) */
+.form-message {
+    margin-top: 1rem;
+}
+
+.form-message:empty {
+    display: none;
+}
+
+.success-message {
+    background-color: var(--light);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+}
+
+.error-message {
+    color: #b00020;
+    font-weight: 600;
+}
+
+.enquiry-list {
+    margin-bottom: 1rem;
+}
+
+.enquiry-list li {
+    margin-bottom: 0.5rem;
+}
+
+form button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Cart page */
+.cart-qty {
+    width: 4.5rem;
+    padding: 0.3rem;
+}
+
+.remove-btn {
+    font-family: var(--font);
+    background: none;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+}
+
+.remove-btn:hover,
+.remove-btn:focus {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* Mobile menu button (added by main.js; phones only) */
+.nav-toggle {
+    display: block;
+    margin: 0 auto 0.5rem auto;
+    font-family: var(--font);
+    font-weight: 600;
+    background: none;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    border-radius: 4px;
+    padding: 0.4rem 1.2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 599px) {
+    header nav.js-nav:not(.open) {
+        display: none;
+    }
+}
+
+@media (min-width: 600px) {
+    .nav-toggle {
+        display: none;
+    }
+}

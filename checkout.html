@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMEZ | Checkout</title>
+    <link rel="stylesheet" href="css_assets/style.css">
+    <meta name="description" content="Complete your order with FORMEZ.">
+<link rel="icon" type="image/png" href="_images/formez_logo.png">   
+</head>
+<body>
+
+    <!-- ===== Site Header ===== -->
+    <header>
+        <img src="_images/formez_logo.png" alt="FORMEZ">
+        <div class="logo">
+            <h1>FORMEZ</h1>
+        </div>
+
+        <!-- ===== Main Navigation ===== -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products</a></li>
+                <li><a href="inquiries.html">Enquiries</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+
+        <h2>Checkout</h2>
+
+        <!-- Order Summary Section -->
+        <section id="checkout-summary">
+            <h3>Order Summary</h3>
+
+            <table id="order-summary-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Your order summary will appear here.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Order Total: <strong id="order-total">R0.00</strong></p>
+        </section>
+
+        <!-- Checkout / Delivery Details Form -->
+        <section id="checkout-form-section">
+            <h3>Delivery &amp; Contact Details</h3>
+
+            <form action="#" method="post">
+                <div>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full-name">
+                </div>
+
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div>
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
+
+                <div>
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method" name="payment-method">
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="eft">EFT</option>
+                        <option value="cod">Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ===== Site Footer ===== -->
+    <footer>
+         <span class="copyright"></span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Products</a></li>
+                <li><a href="inquiries.html">Enquiries</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="js_assets/cart.js" defer></script>
+    <script src="js_assets/main.js" defer></script>
+    <script src="js_assets/forms.js" defer></script>
+
+</body>
+</html>
